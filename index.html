@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>Заказ Атырау</title>
+</head>
 <body>
-    <button onclick="send()">TEST WHATSAPP</button>
+    <h2>Нажми на кнопку ниже</h2>
+    
+    <!-- Это просто ссылка. Прямее некуда -->
+    <a href="https://whatsapp.com" 
+       style="padding: 20px; background: #25D366; color: white; text-decoration: none; border-radius: 10px; font-weight: bold;">
+        ОТПРАВИТЬ В WHATSAPP
+    </a>
 
-    <script>
-    function send() {
-        var phone = "77755058369";
-        var text = "Hello! My name is Nuri. I want to order a car.";
-        
-        // Используем самый простой формат
-        var url = "https://whatsapp.com" + phone + "&text=" + encodeURIComponent(text);
-        
-        window.location.href = url;
-    }
-    </script>
 </body>
 </html>
 
