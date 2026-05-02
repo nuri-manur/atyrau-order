@@ -1,52 +1,19 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Заказ Атырау</title>
-    <style>
-        body { font-family: sans-serif; background: #e5ddd5; display: flex; justify-content: center; padding: 20px; }
-        .box { background: white; padding: 30px; border-radius: 15px; width: 300px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; }
-        input, select, button { width: 100%; padding: 12px; margin-top: 10px; border-radius: 8px; border: 1px solid #ddd; box-sizing: border-box; }
-        button { background: #25D366; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 16px; }
-    </style>
-</head>
+<html>
 <body>
+    <button onclick="send()">TEST WHATSAPP</button>
 
-<div class="box">
-    <h3>🛒 Заказ услуги</h3>
-    <input type="text" id="n" placeholder="Ваше имя">
-    <select id="d">
-        <option value="">Выберите район</option>
-        <option value="Авангард">Авангард</option>
-        <option value="Нурсая">Нурсая</option>
-        <option value="Привокзальный">Привокзальный</option>
-    </select>
-    <input type="text" id="s" placeholder="Что нужно сделать?">
-    <button onclick="go()">ОТПРАВИТЬ В WHATSAPP</button>
-</div>
-
-<script>
-    function go() {
-        var name = document.getElementById('n').value;
-        var dist = document.getElementById('d').value;
-        var serv = document.getElementById('s').value;
-
-        if (name == "" || dist == "" || serv == "") {
-            alert("Заполните все поля!");
-            return;
-        }
-
+    <script>
+    function send() {
         var phone = "77755058369";
-        // Здесь мы используем только латинские буквы для проверки связи, 
-        // чтобы браузер не сходил с ума от кириллицы в адресе
-        var message = "Name: " + name + ". District: " + dist + ". Order: " + serv;
+        var text = "Hello! My name is Nuri. I want to order a car.";
         
-        // ВАЖНО: Мы используем полный адрес API, он надежнее
-        var finalUrl = "https://whatsapp.com" + phone + "&text=" + encodeURIComponent(message);
-
-        window.location.assign(finalUrl);
+        // Используем самый простой формат
+        var url = "https://whatsapp.com" + phone + "&text=" + encodeURIComponent(text);
+        
+        window.location.href = url;
     }
-</script>
-
+    </script>
 </body>
 </html>
+
