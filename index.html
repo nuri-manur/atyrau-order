@@ -35,21 +35,28 @@
         var dist = document.getElementById('d').value;
         var serv = document.getElementById('s').value;
 
-        if (name == "" || dist == "" || serv == "") {
-            alert("Заполните всё!");
+        // Проверка на заполнение полей
+        if (name.trim() === "" || dist === "" || serv.trim() === "") {
+            alert("Пожалуйста, заполните все поля!");
             return;
         }
 
         var phone = "77755058369";
-        // Формируем текст сообщения вручную
-        var message = "Имя: " + name + ". Район: " + dist + ". Заказ: " + serv;
         
-        // Используем самую простую и надежную ссылку
+        // Формируем текст сообщения
+        var message = "Новый заказ!\n" + 
+                      "👤 Имя: " + name + "\n" + 
+                      "📍 Район: " + dist + "\n" + 
+                      "🛠 Услуга: " + serv;
+        
+        // Правильная ссылка для перехода в WhatsApp
         var finalUrl = "https://wa.me" + phone + "?text=" + encodeURIComponent(message);
 
-        window.location.href = finalUrl;
+        // Открытие в новой вкладке
+        window.open(finalUrl, '_blank');
     }
 </script>
+
 
 </body>
 </html>
