@@ -1,38 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Заказ Атырау</title>
     <style>
         body { font-family: sans-serif; background: #e5ddd5; display: flex; justify-content: center; padding: 20px; }
-        .box { background: white; padding: 30px; border-radius: 15px; width: 300px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .btn { 
-            display: inline-block; 
-            width: 100%; 
-            background: #25D366; 
-            color: white; 
-            padding: 15px; 
-            margin-top: 20px; 
-            text-decoration: none; 
-            border-radius: 10px; 
-            font-weight: bold; 
-            box-sizing: border-box;
-        }
+        .box { background: white; padding: 25px; border-radius: 15px; width: 300px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; }
+        input, select, button { width: 100%; padding: 12px; margin-top: 10px; border-radius: 8px; border: 1px solid #ddd; box-sizing: border-box; }
+        button { background: #25D366; color: white; font-weight: bold; border: none; cursor: pointer; font-size: 16px; }
     </style>
 </head>
 <body>
 
 <div class="box">
-    <h3>🛒 Простая отправка</h3>
-    <p>Нажми на кнопку ниже. Мы убрали весь JavaScript, чтобы не было ошибок.</p>
+    <h3>🛒 Заказ услуги</h3>
     
-    <!-- Это просто ссылка, оформленная как кнопка -->
-    <a href="https://whatsapp.com." 
-       class="btn" 
-       target="_blank">
-        ОТПРАВИТЬ В WHATSAPP
-    </a>
+    <input type="text" id="n" placeholder="Ваше имя">
+    
+    <select id="d">
+        <option value="">Выберите район</option>
+        <option value="Авангард">Авангард</option>
+        <option value="Нурсая">Нурсая</option>
+        <option value="Привокзальный">Привокзальный</option>
+    </select>
+
+    <input type="text" id="s" placeholder="Что нужно сделать?">
+
+    <button onclick="go()">ОТПРАВИТЬ В WHATSAPP</button>
 </div>
+
+<script>
+    function go() {
+        var name = document.getElementById('n').value;
+        var dist = document.getElementById('d').value;
+        var serv = document.getElementById('s').value;
+
+        if (name == "" || dist == "" || serv == "") {
+            alert("Заполните всё!");
+            return;
+        }
+
+        var phone = "77755058369";
+        // Формируем текст сообщения вручную
+        var message = "Имя: " + name + ". Район: " + dist + ". Заказ: " + serv;
+        
+        // Используем самую простую и надежную ссылку
+        var finalUrl = "https://whatsapp.com" + phone + "&text=" + encodeURIComponent(message);
+
+        window.location.href = finalUrl;
+    }
+</script>
 
 </body>
 </html>
