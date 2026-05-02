@@ -50,7 +50,7 @@
                       "🛠 Услуга: " + serv;
         
         // Правильная ссылка для перехода в WhatsApp
-        var finalUrl = "https://wa.me" + phone + "?text=" + encodeURIComponent(message);
+        var finalUrl = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
 
         // Открытие в новой вкладке
         window.open(finalUrl, '_blank');
